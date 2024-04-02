@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/SVGIcon">
+        <file alias="Refresh.svg">../pics/SVGIcon/Refresh.svg</file>
+    </qresource>
+</RCC>
