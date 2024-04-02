@@ -100,6 +100,9 @@ public:
         tableView = new QTableView(centralwidget);
         tableView->setObjectName("tableView");
         tableView->setGeometry(QRect(0, 31, 811, 641));
+        tableView->horizontalHeader()->setHighlightSections(false);
+        tableView->verticalHeader()->setVisible(false);
+        tableView->verticalHeader()->setHighlightSections(false);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
