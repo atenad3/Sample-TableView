@@ -28,7 +28,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -50,20 +50,16 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
         centralwidget->setSizePolicy(sizePolicy);
-        centralwidget->setMinimumSize(QSize(815, 675));
-        centralwidget->setMaximumSize(QSize(815, 675));
         centralwidget->setTabletTracking(true);
-        gridLayoutWidget = new QWidget(centralwidget);
-        gridLayoutWidget->setObjectName("gridLayoutWidget");
-        gridLayoutWidget->setGeometry(QRect(0, 0, 811, 29));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout_2 = new QGridLayout(centralwidget);
+        gridLayout_2->setObjectName("gridLayout_2");
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
         gridLayout->setSizeConstraint(QLayout::SetNoConstraint);
-        gridLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(11);
         horizontalLayout->setObjectName("horizontalLayout");
-        label = new QLabel(gridLayoutWidget);
+        label = new QLabel(centralwidget);
         label->setObjectName("label");
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(3);
@@ -73,7 +69,7 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        spinBox = new QSpinBox(gridLayoutWidget);
+        spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName("spinBox");
         spinBox->setMaximum(10000);
 
@@ -83,7 +79,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        pushBotton = new QPushButton(gridLayoutWidget);
+        pushBotton = new QPushButton(centralwidget);
         pushBotton->setObjectName("pushBotton");
         pushBotton->setEnabled(true);
         QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -94,15 +90,26 @@ public:
 
         horizontalLayout->addWidget(pushBotton);
 
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(1, 1);
+        horizontalLayout->setStretch(2, 1000);
+        horizontalLayout->setStretch(3, 1);
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
 
+
+        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
+
         tableView = new QTableView(centralwidget);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(0, 31, 811, 641));
         tableView->horizontalHeader()->setHighlightSections(false);
         tableView->verticalHeader()->setVisible(false);
         tableView->verticalHeader()->setHighlightSections(false);
+
+        gridLayout_2->addWidget(tableView, 1, 0, 1, 1);
+
+        gridLayout_2->setRowStretch(0, 1);
+        gridLayout_2->setRowStretch(1, 3000);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
